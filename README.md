@@ -8,18 +8,18 @@ This project is to extract the movies data from Kaggle and Wikipedia, perform da
 
 The Wikipedia data was in a JSON format and required the most cleanup. Below are the clean up transformations that was performed on the wikipedia dataset
 
-- Any TV shows were filtered out from the movie list
-- Any  row that did not have an IMDB link was filtered out
+- Any row that was a TV show was filtered out from the movie list
+- Any row that did not have an IMDB link was filtered out
 - All the columns that had null values were removed
-- Data that were represented in multiple column were merged (Example columns Director and Directed By were merged into one Director column)
-- Currency data in BoX Office and Budget columns were parsed using regular expressions and were converted to numeric values
-- Release Date amd Running Time column were parsed using regular expressions and was formated accordingly
+- Data that were represented in multiple column were merged (Example columns 'Director' and 'Directed By' were merged into one 'Director' column)
+- Currency data in Box Office and Budget columns were parsed using regular expressions and were converted to numeric values
+- Release Date amd Running Time columns were parsed using regular expressions and were formated accordingly
 
-The movie metadata and ratings data were extracted from Kaggle. Both the files were in consistent format and just needed data type change/clean up
+The movie metadata and ratings data were extracted from Kaggle. Both the files were in consistent format and just needed data type changes/clean up
 
 ## Data Merge
 
-The wikipedia and Kaggle metedata were first merged together. There were few duplicate/redundant columns after the merge. Each column was induvidualy analysed and necessary transformations were performed. The merged movie data was then combined with the ratings data. Any movie that dis not have a rating in the rating dataset was filled witha 0 rating.
+The wikipedia and Kaggle metedata were first merged together. There were few duplicate/redundant columns after the merge. Each column was induvidualy analysed and necessary transformations were performed. The merged movie data was then combined with the ratings data. Any movie that did not have a rating in the rating dataset was filled with a 0 rating.
 
 ## Load to Postgres Database
 
